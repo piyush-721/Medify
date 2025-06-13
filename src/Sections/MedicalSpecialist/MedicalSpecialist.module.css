@@ -2,7 +2,7 @@
   background-color: #ffffff;
   text-align: center;
   padding: 40px 0;
-  overflow: hidden; /* 👈 Hides overflow, but shows peek due to padding */
+  overflow: hidden; 
 }
 
 .header {
@@ -13,7 +13,6 @@
   margin-bottom: 40px;
 }
 
-/* 🟢 Don't apply padding to .swiper — use ::before/::after trick */
 .swiper {
   width: 100%;
   box-sizing: border-box;
@@ -25,18 +24,18 @@
 .swiper-wrapper::after {
   content: "";
   display: block;
-  width: 185px; /* 370px / 2 = half card width */
+  width: 185px; 
   flex-shrink: 0;
 }
 
 .swiper-wrapper {
   display: flex;
   align-items: center;
-  gap: 20px; /* 👈 Ensures consistent spacing between all slides */
+  gap: 20px; 
 }
 
 
-/* ✅ Keep exact size for all cards */
+
 .card {
   width: 370px !important;
   height: 404px !important;
@@ -58,7 +57,6 @@
   border-radius: 12px;
 }
 
-/* ✅ Pagination */
 .swiper-pagination {
   bottom: 0 !important;
 }

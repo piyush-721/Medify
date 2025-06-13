@@ -1,0 +1,146 @@
+.container {
+  margin: 10px auto;
+  width: 1140px;
+  height: 708.8px;
+  text-align: center;
+  border: none;
+  box-sizing: border-box;
+}
+
+.para {
+  font-weight: 600;
+  font-size: 15px;
+  color: #2AA7FF;
+  margin: 15px auto;
+}
+
+.header {
+  max-width: 681px;
+  font-weight: 600;
+  font-size: 42px;
+  color: #1B3C74;
+  margin: 0 auto 30px;
+}
+
+.innerContainer {
+  width: 1140px;
+  height: 570px;
+  border: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.imageDiv {
+  width: 522px;
+  height: 499.84px;
+  border: none;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.questionsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.img {
+  width: 500px;
+  height: 479.84px;
+  border-width: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 15px 55px -10px #00000017;
+  object-fit: cover;
+}
+
+.popup {
+  position: absolute;
+  right: 21.5em;
+  top: 17em;
+}
+
+.shape {
+  position: absolute;
+  top: 8em;
+  left: 27.7em;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .header {
+    font-size: 34px;
+  }
+
+  .container,
+  .innerContainer {
+    width: 95%;
+    height: auto;
+  }
+
+  .imageDiv {
+    width: 100%;
+    height: auto;
+  }
+
+  .img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+  }
+
+  .popup,
+  .shape {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .header {
+    font-size: 20px;
+    margin: 0 auto 20px;
+    max-width: 100%;
+  }
+
+  .para {
+    font-size: 13px;
+    width: 120px;
+    padding: 0px;
+    margin: 10px auto;
+  }
+
+  .innerContainer {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 0px;
+  }
+
+  .imageDiv {
+    width: 90%;
+    align-items: center;
+  }
+
+   .questionsDiv{
+        width: 60%;
+    align-items: center;
+   }
+
+   .questions{
+    width: 300px;
+   }
+
+  .img {
+    width: 80%;
+    height: auto;
+  }
+
+  .popup,
+  .shape {
+    display: none;
+  }
+}

@@ -16,17 +16,14 @@
   letter-spacing: 1px;
 }
 
-/* Hover effect */
 .button:hover {
   border-bottom: 3px solid #2AA7FF;
 }
 
-/* Active underline */
 .active {
   border-bottom: 3px solid #2AA7FF;
 }
 
-/* Booking button styling */
 .bookingBtn {
   letter-spacing: 1px;
   background-color: #2AA7FF;
@@ -45,7 +42,6 @@
   margin-right: 70px;
 }
 
-/* ---------------- Responsive Breakpoints ---------------- */
 @media (max-width: 1024px) {
   .button {
     font-size: 13px;

@@ -2,7 +2,7 @@
   margin-top: 180px;
   margin-left: 30px;
   margin-bottom: 10px;
-  width: calc(100% - 60px); /* Adjusted for margin */
+  width: calc(100% - 60px); 
   padding: 10px 0;
   overflow: hidden;
 }
@@ -11,14 +11,13 @@
   width: 100%;
   max-width: 398px;
   height: auto;
-  aspect-ratio: 2 / 1; /* Maintain ratio like 398x199 */
+  aspect-ratio: 2 / 1; 
   border-radius: 20px;
   object-fit: cover;
   display: block;
   margin: 0 auto;
 }
 
-/* Ensure Swiper's pagination is styled correctly */
 :global(.swiper-pagination) {
   margin-top: 30px;
   position: relative;

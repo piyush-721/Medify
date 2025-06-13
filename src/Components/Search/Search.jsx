@@ -128,7 +128,7 @@ export default function Search({ isHome }) {
         fullWidth={isMobile}
         style={{
           backgroundColor: "#2AA8FF",
-          width: isMobile ? "100%" : "121px",
+          width: isMobile ? 250 : 121,
           height: "50px",
           borderRadius: "8px",
           fontSize: "16px",

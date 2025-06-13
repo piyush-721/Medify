@@ -67,7 +67,6 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* ✅ Responsive Fixes Without Affecting Desktop */
 @media screen and (max-width: 1024px) {
   .boxWrapper {
     grid-template-columns: 1fr 1fr 1fr;

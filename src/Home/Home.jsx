@@ -16,6 +16,9 @@ import styles from "./Home.module.css";
 import Specialisation from "../Sections/Specializations/Specialisation";
 import MedicalSpecialist from "../Sections/MedicalSpecialist/MedicalSpecialist";
 import PatientCaring from "../Sections/PatientCaring/PatientCaring";
+import Blog from "../Sections/Blog/Blog";
+import OurFamilies from "../Sections/OurFamilies/OurFamilies";
+import FAQ from "../Components/FAQ/FAQ";
 
 export default function Home() {
   return (
@@ -65,7 +68,15 @@ export default function Home() {
         <div>
           <PatientCaring />
         </div>
-
+        <div>
+          <Blog />
+        </div>
+        <div>
+          <OurFamilies />
+        </div>
+        <div>
+          <FAQ />
+        </div>
     </>
   );
 }
