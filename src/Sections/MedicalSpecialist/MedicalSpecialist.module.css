@@ -1,0 +1,73 @@
+.container {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 40px 0;
+  overflow: hidden; /* 👈 Hides overflow, but shows peek due to padding */
+}
+
+.header {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #1b3c74;
+  margin-bottom: 40px;
+}
+
+/* 🟢 Don't apply padding to .swiper — use ::before/::after trick */
+.swiper {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  position: relative;
+}
+
+.swiper-wrapper::before,
+.swiper-wrapper::after {
+  content: "";
+  display: block;
+  width: 185px; /* 370px / 2 = half card width */
+  flex-shrink: 0;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* 👈 Ensures consistent spacing between all slides */
+}
+
+
+/* ✅ Keep exact size for all cards */
+.card {
+  width: 370px !important;
+  height: 404px !important;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0px 15px 55px -10px #00000017;
+
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* ✅ Pagination */
+.swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #1b3c74;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}

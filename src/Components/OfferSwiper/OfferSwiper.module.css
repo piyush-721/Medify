@@ -1,0 +1,38 @@
+.swiperContainer {
+  margin-top: 180px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  width: calc(100% - 60px); /* Adjusted for margin */
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.slide img {
+  width: 100%;
+  max-width: 398px;
+  height: auto;
+  aspect-ratio: 2 / 1; /* Maintain ratio like 398x199 */
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Ensure Swiper's pagination is styled correctly */
+:global(.swiper-pagination) {
+  margin-top: 30px;
+  position: relative;
+  text-align: center;
+}
+
+:global(.swiper-pagination-bullet) {
+  background-color: #2aa8ff;
+  opacity: 0.4;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  opacity: 1;
+}
