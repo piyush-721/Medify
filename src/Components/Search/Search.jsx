@@ -69,14 +69,20 @@ export default function Search({ isHome, isMyBookings, setMedicalCenters, setSel
 
   useEffect(() => {
     const delay = setTimeout(() => {
-      if (!Array.isArray(myBookings)) return null; // early return
-      const filtered = myBookings.filter((hospital) => hospital.name.toLowerCase().includes(searchText) ||
-      hospital.city.toLowerCase().includes(searchText) ||
-      hospital.state.toLowerCase().includes(searchText))
+      if (!Array.isArray(myBookings)) return;
+
+      const filtered = myBookings.filter((hospital) =>
+        (hospital["Hospital Name"]?.toLowerCase() || "").includes(searchText) ||
+        (hospital.City?.toLowerCase() || "").includes(searchText) ||
+        (hospital.State?.toLowerCase() || "").includes(searchText)
+      );
+
       setFilteredBookings(filtered);
     }, 500);
+
     return () => clearTimeout(delay);
   }, [searchText, myBookings]);
+
 
 
   const icon = isHome ? <SearchOutlinedIcon /> : <FmdGoodOutlinedIcon />;

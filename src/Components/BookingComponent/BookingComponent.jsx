@@ -50,30 +50,33 @@ const BookingComponent = ({ center }) => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleBooking = (slot) => {
-    const selectedDate = dateOptions[selectedDateIndex].label;
-    const booking = {
-      id: center["Provider ID"],
-      name: center["Hospital Name"],
-      city: center.City,
-      state: center.State,
-      type: center["Hospital Type"],
-      rating: center["Hospital overall rating"],
-      date: selectedDate,
-      time: slot,
-    };
+const handleBooking = (slot) => {
+  setSelectedTime(slot); 
+  const selectedDate = dateOptions[selectedDateIndex].label;
 
-    const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
-    localStorage.setItem("bookings", JSON.stringify([...existingBookings, booking]));
-    navigate("/my-bookings");
+  const booking = {
+    "Hospital Name": center["Hospital Name"],
+    "City": center.City,
+    "State": center.State,
+    "Hospital Type": center["Hospital Type"],
+    "Hospital overall rating": center["Hospital overall rating"],
+    bookingDate: selectedDate,
+    bookingTime: slot,
   };
+
+  const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+  localStorage.setItem("bookings", JSON.stringify([...existingBookings, booking]));
+
+  setTimeout(() => navigate("/my-bookings"), 300); 
+};
+
 
   return (
     <Box
       className={styles.bookingBox}
       sx={{
         backgroundColor: "#FFFFFF",
-        width: "834px",
+        width: "835px",
         height: "278px",
         borderRadius: "8px",
         p: 2,
@@ -113,7 +116,7 @@ const BookingComponent = ({ center }) => {
 
         <Swiper
           spaceBetween={10}
-          slidesPerView={window.innerWidth <= 768 ? 1.1 : 3}
+          slidesPerView={3}
           modules={[Navigation]}
           onSwiper={(swiper) => {
             setTimeout(() => {
@@ -200,11 +203,13 @@ const BookingComponent = ({ center }) => {
                     variant={selectedTime === slot ? "contained" : "outlined"}
                     className={styles.timeSlotBtn}
                     sx={{
-                      minWidth: 90,
+                      minWidth: 70,
+                      padding: "4px 10px",
+                      fontSize: "12px",
                       '@media (max-width:768px)': {
-                        minWidth: 60,
+                        minWidth: 50,
                         fontSize: '10px',
-                        padding: '2px 6px'
+                        padding: '2px 4px'
                       }
                     }}
                   >
