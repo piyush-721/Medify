@@ -76,7 +76,7 @@ function FindDoctors() {
         {searchTriggered && selectedState && medicalCenters.length >= 0 && (
         <div className={styles.centerCountDiv}>
             <h1 className={styles.centerCountHeader}>
-                {medicalCenters.length} medical centers available in {selectedState.toLowerCase()}
+                {medicalCenters.length} medical centers available in {selectedCity.toLowerCase()}
             </h1>
             <div className={styles.paraBox}>
             <img className={styles.tick} src={tick} alt="" />
