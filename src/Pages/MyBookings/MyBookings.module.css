@@ -276,6 +276,7 @@ margin: 0px;
 
   .cardContainer {
     padding: 12px;
+
   }
 
   .cardDetails {
@@ -285,4 +286,25 @@ margin: 0px;
   .thumb {
     font-size: 12px;
   }
+
+  .time{
+    position:absolute;
+    top: 30em;
+    left: 12em;
+  }
+  .date{
+    position:absolute;
+    top: 35em;
+    left: 10em;
+
+  }
+
+  .cardWrapper{
+    width: 388px;
+    margin: 0px;
+  }
+  .cardContainer{
+    width: 100%;
+  }
+
 }

@@ -3,15 +3,16 @@ height: 100px;
 background: linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%);
 border-bottom-left-radius: 16px;
 border-bottom-right-radius: 16px;
+margin-bottom: 5rem;
 }
 
 .searchDiv{
     z-index: 1;
     position: absolute;
     top: 9.5rem;
-    left: 10rem;
+    left: 13rem;
 
-    width: 870px;
+    width: 970px;
 height: 70px;
 
 border-radius: 15px;

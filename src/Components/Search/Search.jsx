@@ -213,7 +213,7 @@ export default function Search({
               }}
               disabled={!selectedState}
               sx={{
-                width: isMobile ? 250 : isHome ? 285 : 350,
+                width: isMobile ? 250 : isHome ? 285 : 420,
                 marginRight: isMobile ? 0 : isHome ? 6 : 2,
               }}
               renderInput={(params) => (

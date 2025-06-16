@@ -17,7 +17,7 @@ function MyBookings() {
     const stored = JSON.parse(localStorage.getItem("bookings")) || [];
 
     // Ensure we only extract the fields you mentioned
-    const sanitized = stored.map((booking) => ({
+    const onlyRequiredFields = stored.map((booking) => ({
       name: booking["Hospital Name"],
       city: booking["City"],
       state: booking["State"],
@@ -27,7 +27,7 @@ function MyBookings() {
       time: booking.bookingTime,
     }));
 
-    setMyBookings(sanitized);
+    setMyBookings(onlyRequiredFields);
   }, []);
 
   return (

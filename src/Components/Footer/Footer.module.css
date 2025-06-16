@@ -130,6 +130,14 @@ border-top-width: 1px;
 
   }
 
+  .listItem{
+        width: 300px;
+    height: 40px;
+    margin: 5px auto;
+    
+
+  }
+
   .socialIcons {
     font-size: 20px;
   }
