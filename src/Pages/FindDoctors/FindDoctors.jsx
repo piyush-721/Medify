@@ -34,7 +34,7 @@ function FindDoctors() {
             />
         </div>
 
-        <div className={styles.centerCountDiv}>
+        {/* <div className={styles.centerCountDiv}>
             <h1 className={styles.centerCountHeader}>
             {medicalCenters.length} medical centers available in {selectedState}
             </h1>
@@ -44,7 +44,22 @@ function FindDoctors() {
                 Book appointments with minimum wait-time & verified doctor details
             </p>
             </div>
+        </div> */}
+
+        {searchTriggered && selectedState && medicalCenters.length >= 0 && (
+        <div className={styles.centerCountDiv}>
+            <h1 className={styles.centerCountHeader}>
+            {medicalCenters.length} medical centers available in {selectedState.toLowerCase()}
+            </h1>
+            <div className={styles.paraBox}>
+            <img className={styles.tick} src={tick} alt="" />
+            <p className={styles.countPara}>
+                Book appointments with minimum wait-time & verified doctor details
+            </p>
+            </div>
         </div>
+        )}
+
 
             {searchTriggered && <Card medicalCenters={medicalCenters} selectedCenterId={selectedCenterId} setSelectedCenterId={setSelectedCenterId}/>}
 
