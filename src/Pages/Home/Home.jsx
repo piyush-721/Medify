@@ -1,35 +1,47 @@
-import DoctorPng from "../assets/doctor-png.png";
-import Labs from "../assets/drugstore-png.png";
-import Hospital from "../assets/hospital-png.png";
-import MedicalStore from "../assets/drugstore-png.png";
-import Ambulance from "../assets/ambulance-png.png";
+import DoctorPng from "../../assets/doctor-png.png";
+import Labs from "../../assets/drugstore-png.png";
+import Hospital from "../../assets/hospital-png.png";
+import MedicalStore from "../../assets/drugstore-png.png";
+import Ambulance from "../../assets/ambulance-png.png";
 
 
-import React from "react";
-import Navbar from "../Components/Navbar";
-import Hero from "../Components/Hero/Hero";
-import Search from "../Components/Search/Search";
-import OfferSwiper from "../Components/OfferSwiper/OfferSwiper";
+import React,{useState, useEffect} from "react";
+
+import Navbar from "../../Components/Navbar/Navbar";
+import Hero from "../../Components/Hero/Hero";
+import Search from "../../Components/Search/Search";
+import OfferSwiper from "../../Components/OfferSwiper/OfferSwiper";
 
 
 import styles from "./Home.module.css";
-import Specialisation from "../Sections/Specializations/Specialisation";
-import MedicalSpecialist from "../Sections/MedicalSpecialist/MedicalSpecialist";
-import PatientCaring from "../Sections/PatientCaring/PatientCaring";
-import Blog from "../Sections/Blog/Blog";
-import OurFamilies from "../Sections/OurFamilies/OurFamilies";
-import FAQ from "../Components/FAQ/FAQ";
+import Specialisation from "../../Sections/Specializations/Specialisation";
+import MedicalSpecialist from "../../Sections/MedicalSpecialist/MedicalSpecialist";
+import PatientCaring from "../../Sections/PatientCaring/PatientCaring";
+import Blog from "../../Sections/Blog/Blog";
+import OurFamilies from "../../Sections/OurFamilies/OurFamilies";
+import FAQ from "../../Components/FAQ/FAQ";
+import Download from "../../Components/Download/Download";
+import Footer from "../../Components/Footer/Footer";
 
 export default function Home() {
+    const [selectedState, setSelectedState] = useState("");
+    const [searchTriggered, setSearchTriggered] = useState(false);
+    const [medicalCenters, setMedicalCenters] = useState([]);
+    
   return (
     <>
       <div className={styles.container}>
-        <Navbar hasHiddenButtons />
+        <Navbar />
         <Hero />
       </div>
       <div className={styles.popup}>
         <div className={styles.searchWrapper}>
-          <Search isHome />
+          <Search isHome
+              setSelectedState={setSelectedState}
+              selectedState={selectedState}
+              setSearchTriggered={setSearchTriggered}
+              setMedicalCenters={setMedicalCenters}
+          />
         </div>
         <p className={styles.para}>You may be looking for</p>
         <div className={styles.boxWrapper}>
@@ -76,6 +88,12 @@ export default function Home() {
         </div>
         <div>
           <FAQ />
+        </div>
+        <div>
+          <Download />
+        </div>
+        <div>
+          <Footer />
         </div>
     </>
   );

@@ -69,7 +69,6 @@
   left: 27.7em;
 }
 
-/* Tablet */
 @media (max-width: 1024px) {
   .header {
     font-size: 34px;
@@ -98,7 +97,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .header {
     font-size: 20px;

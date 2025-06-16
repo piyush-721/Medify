@@ -1,0 +1,315 @@
+.blueDiv{
+height: 100px;
+background: linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%);
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+}
+
+.searchDiv{
+    z-index: 1;
+    position: absolute;
+    top: 9.5rem;
+    left: 10rem;
+
+    width: 870px;
+height: 70px;
+
+border-radius: 15px;
+padding-top: 27px;
+padding-right: 74px;
+padding-bottom: 27px;
+padding-left: 0px;
+gap: 29px;
+
+background-color: #FFFFFF;
+
+box-shadow: 6px 6px 35px 0px #1028511C;
+
+}
+
+.centerCountDiv{
+    width: 643px;
+height: 64px;
+border: none;
+margin-top: 10rem;
+margin-left: 10rem;
+}
+
+.centerCountHeader{
+    font-family: Poppins, sans-serif;
+font-weight: 500;
+font-size: 24px;
+letter-spacing: 0%;
+color: black;
+margin: 0px;
+}
+.countPara{
+    font-family: Poppins, sans-serif;
+font-weight: 400;
+font-size: 16px;
+letter-spacing: 0%;
+color: #787887;
+}
+
+.tick{
+    width: 23px;
+height: 20px;
+margin-right: 30px;
+}
+.paraBox{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Cards */
+
+.cardContainer{
+    width: 785.5599975585938px;
+height: 268.3800048828125px;
+border-radius: 15px;
+gap: 14px;
+padding: 24px;
+border: none;
+background-color: #FFFFFF;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 6px 6px 35px 0px #1028511C;
+margin-left: 8rem;
+margin-right: 30px;
+margin-top: 2rem;
+}
+
+.cardDiv{
+display: flex;
+
+}
+.cardDetails{
+    width: 339.54998779296875px;
+    height: 220.3800048828125px;
+border: none;
+    display: flex;
+    flex-direction: column;
+}
+.hospitalName{
+    color: #14BEF0;
+
+    font-family: Poppins, sans-serif;
+font-weight: 600;
+font-size: 20px;
+letter-spacing: 0%;
+margin: 0px;
+}
+
+.cityAndName{
+    font-family: Poppins,sans-serif;
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 0%;
+color: #414146;
+margin: 40px 0px 5px 0px;
+}
+.hospitalType{
+    font-family: Poppins, sans-serif;
+font-weight: 400;
+font-size: 14px;
+letter-spacing: 0%;
+color: #414146;
+margin: 0px 0px 5px 0px;
+}
+.free{
+    font-family: Poppins,sans-serif;
+font-weight: 400;
+font-size: 14px;
+letter-spacing: 0%;
+color: #414146;
+}
+
+.thumb{
+    width: 44.08000183105469px;
+height: 22.5px;
+border-radius: 3.5px;
+padding-top: 4.5px;
+padding-right: 7.49px;
+padding-bottom: 4px;
+padding-left: 10.8px;
+gap: 2.79px;
+margin: 10px 0px 10px 0px;
+background-color: #00A500;
+color: #FFFFFF;
+display: flex;
+align-items: center;
+}
+
+.available{
+    width: 236.010009765625px;
+height: 82px;
+padding-top: 137.98px;
+padding-right: 16.01px;
+gap: 15.99px;
+border: none;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+}
+
+.availablePara{
+    font-family: Poppins, sans-serif;
+font-weight: 500;
+font-size: 14px;
+line-height: 19.6px;
+letter-spacing: 0%;
+text-align: center;
+color: #01A400;
+
+width: 114px;
+height: 20px;
+margin: 5px auto;
+
+}
+
+.bookingBtn{
+    width: 212px;
+height: 40px;
+border-width: 1px;
+border-radius: 4px;
+border: 1px solid #14BEF0;
+background-color: #2AA7FF;
+color: #FFFFFF;
+cursor: pointer;
+}
+
+
+.freeAppointment{
+    width: 363px;
+height: 268px;
+border-radius: 15px;
+margin: 0px;
+}
+
+.freeAppointmentDiv{
+    position: absolute;
+    top: 29rem;
+    right: 1rem;
+}
+
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+
+@media (max-width: 1024px) {
+  .searchDiv {
+    left: 5rem;
+    width: 90%;
+  }
+
+  .centerCountDiv {
+    margin-left: 5rem;
+    width: 90%;
+  }
+
+  .cardContainer {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    margin-left: 5rem;
+    align-items: flex-start;
+  }
+
+  .cardDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .available {
+    width: 100%;
+    padding-top: 1rem;
+    align-items: flex-start;
+  }
+
+  .bookingBtn {
+    width: 100%;
+  }
+
+  .freeAppointmentDiv {
+    position: static;
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  .freeAppointment {
+    width: 80%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .blueDiv {
+    height: 80px;
+  }
+
+  .searchDiv {
+    top: 8rem;
+    left: 1rem;
+    width: 90%;
+    padding: 20px;
+  }
+
+  .centerCountDiv {
+    margin-left: 1rem;
+    margin-top: 11rem;
+  }
+
+  .cardContainer {
+    margin-left: 1rem;
+  }
+
+  .thumb {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .centerCountHeader {
+    font-size: 18px;
+  }
+
+  .countPara {
+    font-size: 14px;
+  }
+
+  .searchDiv {
+    top: 7rem;
+    padding: 0px;
+    height: 200px;
+    width: 363px;
+    margin: 0px;
+    background-color: white;
+    box-shadow: none;
+  }
+
+  .availablePara {
+    font-size: 12px;
+  }
+
+  .bookingBtn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .tick {
+    margin-right: 10px;
+  }
+  .blueDiv{
+    display: none;
+  }
+  .cardWrapper{
+    width: 385px;
+  }
+}

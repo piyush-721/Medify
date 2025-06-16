@@ -1,0 +1,254 @@
+.outerContainer {
+  width: 1440px;
+  height: 542px;
+  background: linear-gradient(81deg, #E7F0FF 9.01%, rgba(232, 241, 255, 0.47) 89.11%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.container {
+  border: none;
+  width: 1162px;
+  height: 566px;
+  position: absolute;
+  top: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+
+.mobiles {
+  border: none;
+  width: 450px;
+  height: 566px;
+  position: relative;
+}
+
+.download {
+  margin-top: 7em;
+  border: none;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.mobileOne,
+.mobileTwo,
+.mobileOnedown,
+.mobileTwodown {
+  position: absolute;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.mobileOne {
+  width: 220px;
+  top: 9em;
+  right: 2em;
+}
+
+.mobileTwo {
+  height: 440px;
+  width: 210px;
+  top: 10em;
+  right: 2.19em;
+}
+
+.mobileOnedown {
+  width: 220px;
+  top: 12em;
+  left: 3em;
+}
+
+.mobileTwodown {
+  height: 440px;
+  width: 210px;
+  top: 13em;
+  left: 3.3em;
+}
+
+.header {
+  width: 338px;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 45px;
+  color: #1B3C74;
+}
+
+.para {
+  width: 233.77px;
+  height: 19px;
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #414146;
+}
+
+.number {
+  margin-top: 20px;
+}
+
+.downBtn {
+  width: 200px;
+  height: 60px;
+}
+
+.downloadButtons {
+  width: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 35px;
+}
+
+.arrow {
+  height: 70px;
+  position: absolute;
+  top: 3.1em;
+  left: -2.9em;
+}
+
+.input {
+  width: 250px;
+  height: 30px;
+  background-color: #FAFBFE;
+  border: 1px solid #F0F0F0;
+}
+
+.code {
+  color: black;
+  background-color: #FAFBFE;
+  border: 1px solid #F0F0F0;
+  padding: 8px;
+}
+
+.smsbutton {
+  width: 110px;
+  height: 35px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2AA8FF;
+  color: #FFFFFF;
+  margin-left: 10px;
+}
+
+@media (max-width: 1024px) {
+  .outerContainer {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .container {
+    position: static;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    gap: 50px;
+    padding-top: 30px;
+  }
+
+  .mobiles {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    min-height: 400px;
+  }
+
+  .download {
+    width: 100%;
+    align-items: center;
+    margin-top: 0;
+    height: auto;
+    text-align: center;
+  }
+
+  .header {
+    font-size: 32px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .para {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .downloadButtons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .downBtn {
+    width: 70%;
+  }
+
+  .mobileOne,
+  .mobileTwo,
+  .mobileOnedown,
+  .mobileTwodown,
+  .arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    font-size: 24px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .para {
+    font-size: 13px;
+  }
+
+  .downBtn {
+    width: 65%;
+    margin: 0px;
+  }
+
+  .downloadButtons{
+    width: 300px;
+  }
+
+  .input {
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  .container {
+    height: 480px;
+    width: 400px;
+    padding: 40px 0px;
+    
+  }
+  .outerContainer{
+    padding: 0px;
+    margin: 0px;
+  }
+  .mobiles{
+    width: 0px;
+    height: 0px;
+    
+  }
+  /* .number{
+    width: 250px;
+    padding: 0px;
+    margin: 0px;
+  } */
+}

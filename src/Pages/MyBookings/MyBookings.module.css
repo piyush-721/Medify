@@ -1,0 +1,288 @@
+.blueDiv{
+height: 100px;
+background: linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%);
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+margin-bottom: 5rem;
+}
+
+.header{
+    font-family: Ubuntu;
+font-weight: 700;
+font-size: 40px;
+letter-spacing: 0%;
+
+color: #FFFFFF;
+position: absolute;
+top: 6.9rem;
+left: 9rem;
+}
+
+.searchDiv{
+    z-index: 1;
+    position: absolute;
+    top: 9.5rem;
+    left: 30rem;
+
+    width: 670px;
+height: 70px;
+
+border-radius: 15px;
+padding-top: 27px;
+padding-right: 74px;
+padding-bottom: 27px;
+padding-left: 0px;
+gap: 29px;
+
+background-color: #FFFFFF;
+
+box-shadow: 6px 6px 35px 0px #1028511C;
+
+}
+
+
+
+/* Cards */
+
+.noResults {
+    margin-top: 13rem;
+  margin-left: 30rem;
+  font-size: 18px;
+  color: #999;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.cardContainer{
+    width: 785.5599975585938px;
+height: 268.3800048828125px;
+border-radius: 15px;
+gap: 14px;
+padding: 24px;
+border: none;
+background-color: #FFFFFF;
+display: flex;
+justify-content: center;
+align-items: center;
+justify-content: space-around;
+box-shadow: 6px 6px 35px 0px #1028511C;
+margin-left: 8rem;
+margin-right: 30px;
+margin-top: 2rem;
+margin-bottom: 0px;
+position: relative;
+}
+
+.cardDiv{
+display: flex;
+
+}
+.cardDetails{
+    width: 339.54998779296875px;
+    height: 220.3800048828125px;
+border: none;
+    display: flex;
+    flex-direction: column;
+}
+.hospitalName{
+    color: #14BEF0;
+
+    font-family: Poppins, sans-serif;
+font-weight: 600;
+font-size: 20px;
+letter-spacing: 0%;
+margin: 0px;
+}
+
+.cityAndName{
+    font-family: Poppins,sans-serif;
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 0%;
+color: #414146;
+margin: 40px 0px 5px 0px;
+}
+.hospitalType{
+    font-family: Poppins, sans-serif;
+font-weight: 400;
+font-size: 14px;
+letter-spacing: 0%;
+color: #414146;
+margin: 0px 0px 5px 0px;
+}
+
+
+.thumb{
+    width: 44.08000183105469px;
+height: 22.5px;
+border-radius: 3.5px;
+padding-top: 4.5px;
+padding-right: 7.49px;
+padding-bottom: 4px;
+padding-left: 10.8px;
+gap: 2.79px;
+margin: 60px 0px 10px 0px;
+background-color: #00A500;
+color: #FFFFFF;
+display: flex;
+align-items: center;
+}
+
+.available{
+    width: 236.010009765625px;
+height: 250px;
+border: none;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+}
+.time{
+    position: absolute;
+    top: 2em;
+    left: 39em;
+
+    width: 84px;
+height: 31.59000015258789px;
+border-radius: 3px;
+border-width: 1px;
+border: 1px solid #2AA7FF;
+color: #2AA7FF;
+font-family: Lato;
+font-weight: 400;
+font-size: 14px;
+line-height: 19.6px;
+letter-spacing: 0%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.date{
+    position: absolute;
+    top: 2em;
+    left: 47em;
+    width: 128px;
+    height: 32px;
+    border-radius: 3px;
+    border-width: 1px;
+    border: 1px solid #00A500;
+
+    font-family: Lato;
+font-weight: 700;
+font-size: 14px;
+line-height: 19.6px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+color: #007100;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+
+.freeAppointment{
+    width: 363px;
+height: 268px;
+border-radius: 15px;
+margin: 0px;
+}
+
+.freeAppointmentDiv{
+    position: absolute;
+    top: 20rem;
+    right: 1rem;
+}
+
+
+@media (max-width: 1024px) {
+  .searchDiv {
+    position: static;
+    margin: 2rem auto;
+    width: 90%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .blueDiv {
+    height: 100px;
+    border-radius: 0 0 16px 16px;
+    margin-bottom: 8rem;
+  }
+
+  .header {
+    font-size: 32px;
+    position: static;
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  .cardContainer {
+    width: 90%;
+    flex-direction: column;
+    margin: 2rem auto;
+    height: auto;
+    padding: 16px;
+  }
+
+  .cardDiv {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardImage img {
+    margin: 0 0 1rem 0 !important;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .cardDetails {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .thumb {
+    margin: 1rem auto;
+    justify-content: center;
+  }
+
+  .available {
+    width: 100%;
+    padding-top: 0;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .searchDiv {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .header {
+    font-size: 28px;
+  }
+
+  .cardContainer {
+    padding: 12px;
+  }
+
+  .cardDetails {
+    font-size: 14px;
+  }
+
+  .thumb {
+    font-size: 12px;
+  }
+}
