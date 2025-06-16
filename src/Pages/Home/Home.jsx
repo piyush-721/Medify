@@ -25,6 +25,7 @@ import Footer from "../../Components/Footer/Footer";
 
 export default function Home() {
     const [selectedState, setSelectedState] = useState("");
+    const [selectedCity, setSelectedCity] = useState("");
     const [searchTriggered, setSearchTriggered] = useState(false);
     const [medicalCenters, setMedicalCenters] = useState([]);
     
@@ -39,6 +40,8 @@ export default function Home() {
           <Search isHome
               setSelectedState={setSelectedState}
               selectedState={selectedState}
+              selectedCity={selectedCity}
+              setSelectedCity={setSelectedCity}
               setSearchTriggered={setSearchTriggered}
               setMedicalCenters={setMedicalCenters}
           />

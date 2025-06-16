@@ -10,16 +10,31 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
+import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
+import { useNavigate } from "react-router-dom";
 
-export default function Search({ isHome, isMyBookings, setMedicalCenters, setSelectedState, selectedState, setSearchTriggered, searchText, setSearchText, myBookings, setFilteredBookings }) {
+export default function Search({
+  isHome,
+  isMyBookings,
+  setMedicalCenters,
+  setSelectedState,
+  selectedState,
+  selectedCity,
+  setSelectedCity,
+  setSearchTriggered,
+  searchText,
+  setSearchText,
+  myBookings,
+  setFilteredBookings,
+}) {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
-  const [selectedCity, setSelectedCity] = useState(null);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const navigate = useNavigate();
 
+  // Fetch states
   useEffect(() => {
     const fetchStates = async () => {
       try {
@@ -32,11 +47,14 @@ export default function Search({ isHome, isMyBookings, setMedicalCenters, setSel
     fetchStates();
   }, []);
 
+  // Fetch cities when state changes
   useEffect(() => {
     const fetchCities = async () => {
       if (!selectedState) {
         setCities([]);
-        setSelectedCity(null);
+        if (typeof setSelectedCity === "function") {
+          setSelectedCity("");
+        }
         return;
       }
       try {
@@ -49,12 +67,22 @@ export default function Search({ isHome, isMyBookings, setMedicalCenters, setSel
     fetchCities();
   }, [selectedState]);
 
+  // Fetch hospitals when state and city are selected
   useEffect(() => {
     const fetchCenters = async () => {
       if (!selectedState || !selectedCity) return;
       try {
-        const res = await axios.get(`https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCity}`);
-        setMedicalCenters(res.data || []);
+        const res = await axios.get(
+          `https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCity}`
+        );
+        const centers = res.data || [];
+        if (typeof setMedicalCenters === "function") {
+          setMedicalCenters(centers);
+        }
+        localStorage.setItem("medicalCenters", JSON.stringify(centers));
+        if (isHome && typeof setSearchTriggered === "function") {
+          setSearchTriggered(true);
+        }
       } catch (error) {
         console.error("Failed to fetch centers:", error);
       }
@@ -62,28 +90,32 @@ export default function Search({ isHome, isMyBookings, setMedicalCenters, setSel
     fetchCenters();
   }, [selectedCity, selectedState]);
 
-
+  // Hospital search handler for bookings
   const handleHospitalSearch = (e) => {
-    setSearchText(e.target.value.toLowerCase());
-  }
+    if (typeof setSearchText === "function") {
+      setSearchText(e.target.value.toLowerCase());
+    }
+  };
 
+  // Filter myBookings list
   useEffect(() => {
     const delay = setTimeout(() => {
       if (!Array.isArray(myBookings)) return;
+      const text = searchText?.toLowerCase() || "";
 
       const filtered = myBookings.filter((hospital) =>
-        (hospital["Hospital Name"]?.toLowerCase() || "").includes(searchText) ||
-        (hospital.City?.toLowerCase() || "").includes(searchText) ||
-        (hospital.State?.toLowerCase() || "").includes(searchText)
+        (hospital["Hospital Name"]?.toLowerCase() || "").includes(text) ||
+        (hospital.City?.toLowerCase() || "").includes(text) ||
+        (hospital.State?.toLowerCase() || "").includes(text)
       );
 
-      setFilteredBookings(filtered);
+      if (typeof setFilteredBookings === "function") {
+        setFilteredBookings(filtered);
+      }
     }, 500);
 
     return () => clearTimeout(delay);
   }, [searchText, myBookings]);
-
-
 
   const icon = isHome ? <SearchOutlinedIcon /> : <FmdGoodOutlinedIcon />;
 
@@ -107,10 +139,7 @@ export default function Search({ isHome, isMyBookings, setMedicalCenters, setSel
             placeholder="Search By Hospital"
             variant="outlined"
             sx={{ width: isMobile ? 250 : 490 }}
-            InputProps={{
-              type: "search",
-
-            }}
+            InputProps={{ type: "search" }}
           />
 
           <Button
@@ -143,10 +172,14 @@ export default function Search({ isHome, isMyBookings, setMedicalCenters, setSel
             <Autocomplete
               disableClearable
               options={states}
-              value={selectedState}
+              value={selectedState || ""}
               onChange={(e, value) => {
-                setSelectedState(value || null);
-                setSelectedCity(null);
+                if (typeof setSelectedState === "function") {
+                  setSelectedState(value || "");
+                }
+                if (typeof setSelectedCity === "function") {
+                  setSelectedCity("");
+                }
               }}
               sx={{ width: isMobile ? 250 : 285, marginRight: isMobile ? 0 : isHome ? 6 : 2 }}
               renderInput={(params) => (
@@ -172,14 +205,16 @@ export default function Search({ isHome, isMyBookings, setMedicalCenters, setSel
             <Autocomplete
               disableClearable
               options={cities}
-              value={selectedCity}
+              value={selectedCity || ""}
               onChange={(e, value) => {
-                setSelectedCity(value || null);
+                if (typeof setSelectedCity === "function") {
+                  setSelectedCity(value || "");
+                }
               }}
               disabled={!selectedState}
               sx={{
                 width: isMobile ? 250 : isHome ? 285 : 350,
-                marginRight: isMobile ? 0 : isHome ? 6 : 2
+                marginRight: isMobile ? 0 : isHome ? 6 : 2,
               }}
               renderInput={(params) => (
                 <TextField
@@ -205,7 +240,16 @@ export default function Search({ isHome, isMyBookings, setMedicalCenters, setSel
             id="searchBtn"
             onClick={() => {
               if (selectedState && selectedCity) {
-                setSearchTriggered(true);
+                if (isHome) {
+                  navigate("/find-doctors", {
+                    state: {
+                      state: selectedState,
+                      city: selectedCity,
+                    },
+                  });
+                }else{
+                  setSearchTriggered(true);
+                }
               }
             }}
             startIcon={<SearchOutlinedIcon />}

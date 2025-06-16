@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { useLocation } from "react-router-dom";
 import Navbar from '../../Components/Navbar/Navbar';
 import styles from "./FindDoctors.module.css";
 import Search from '../../Components/Search/Search';
@@ -14,10 +15,44 @@ import Footer from '../../Components/Footer/Footer';
 function FindDoctors() {
     const [medicalCenters, setMedicalCenters] = useState([]);
     const [selectedState, setSelectedState] = useState("");
+    const [selectedCity, setSelectedCity] = useState("");
+
     const [searchTriggered, setSearchTriggered] = useState(false);
     const [selectedCenterId, setSelectedCenterId] = useState(null);
 
- 
+    const location = useLocation();
+
+    
+    useEffect(() => {
+    const stateFromNav = location.state?.state;
+    const cityFromNav = location.state?.city;
+
+    if (stateFromNav && cityFromNav) {
+        setSelectedState(stateFromNav);
+        setSelectedCity(cityFromNav);
+        setSearchTriggered(true);
+    }
+    }, [location.state]);
+
+    useEffect(() => {
+        const fetchHospitals = async () => {
+        if (!selectedState || !selectedCity || !searchTriggered) return;
+
+        try {
+        const res = await fetch(
+            `https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCity}`
+        );
+        const data = await res.json();
+        setMedicalCenters(data || []);
+        } catch (error) {
+        console.error("Error fetching hospitals:", error);
+    }
+    };
+
+    fetchHospitals();
+    }, [selectedState, selectedCity, searchTriggered]);
+
+
     return (
         <div>
         <div>
@@ -30,26 +65,18 @@ function FindDoctors() {
             setMedicalCenters={setMedicalCenters}
             setSelectedState={setSelectedState}
             selectedState={selectedState}
+            selectedCity={selectedCity}
+            setSelectedCity={setSelectedCity}
             setSearchTriggered={setSearchTriggered}
             />
         </div>
 
-        {/* <div className={styles.centerCountDiv}>
-            <h1 className={styles.centerCountHeader}>
-            {medicalCenters.length} medical centers available in {selectedState}
-            </h1>
-            <div className={styles.paraBox}>
-            <img className={styles.tick} src={tick} alt="" />
-            <p className={styles.countPara}>
-                Book appointments with minimum wait-time & verified doctor details
-            </p>
-            </div>
-        </div> */}
+
 
         {searchTriggered && selectedState && medicalCenters.length >= 0 && (
         <div className={styles.centerCountDiv}>
             <h1 className={styles.centerCountHeader}>
-            {medicalCenters.length} medical centers available in {selectedState.toLowerCase()}
+                {medicalCenters.length} medical centers available in {selectedState.toLowerCase()}
             </h1>
             <div className={styles.paraBox}>
             <img className={styles.tick} src={tick} alt="" />
@@ -59,7 +86,6 @@ function FindDoctors() {
             </div>
         </div>
         )}
-
 
             {searchTriggered && <Card medicalCenters={medicalCenters} selectedCenterId={selectedCenterId} setSelectedCenterId={setSelectedCenterId}/>}
 
